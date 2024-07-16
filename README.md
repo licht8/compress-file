@@ -16,7 +16,7 @@ Restores and saves the original file.
 ## Building the Project
 ### Linux 
 ```
-git clone https://github.com/licht8/IPv4-calculator.git
+git clone https://github.com/licht8/compress-file.git
 chmod +x BUILD.sh && chmod +x RUN.sh
 ```
 In order to start building follow this command: 
