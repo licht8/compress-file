@@ -19,8 +19,7 @@ Restores and saves the original file.
 git clone https://github.com/licht8/IPv4-calculator.git
 chmod +x BUILD.sh && chmod +x RUN.sh
 ```
-
-In order to start building follow this command: ``` ./BUILD.sh ``` 
+In order to start building follow this command: ``` ./BUILD.sh ```
 After building you can run ``` ./RUN.sh ```
 
 ### Windows
