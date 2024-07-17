@@ -1,4 +1,4 @@
-#include "include\huffman.h"
+#include "huffman.h"
 #include <limits.h>
 #include <string.h>
 #include <stdio.h>

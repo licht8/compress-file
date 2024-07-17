@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "include\huffman.h"
+#include "huffman.h"
 
 int main() {
     int choice;
