@@ -10,13 +10,13 @@ else
         echo "Bin directory is missing. Please run ./BUILD.sh to create it."
         exit 1
     else
-        # Check if the executable file Compress_File exists
-        if [ -f "build/bin/huffman" ]; then
-            echo "Starting huffman..."
+        # Check if the executable file Compress-File exists
+        if [ -f "build/bin/Compress-File" ]; then
+            echo "Starting 'Compress-File'..."
             cd ./build/bin/
-            ./huffman
+            ./Compress-File
         else
-            echo "Executable huffman is missing. Please run ./BUILD.sh to create it."
+            echo "Executable 'Compress-File' is missing. Please run ./BUILD.sh to create it."
             exit 1
         fi
     fi
