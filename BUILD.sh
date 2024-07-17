@@ -35,13 +35,11 @@ if [ $? -eq 0 ]; then
     duration=$(echo "$end_time - $start_time" | bc)
     printf "Build completed successfully in %.2f seconds!\n" "$duration" | tee -a logs/build.log
 
-    # Move logs to the build directory
     if [ ! -d "build/logs" ]; then
         mkdir build/logs
     fi
     mv logs/* build/logs/
-
-    # Optionally remove the empty logs directory
+    
     rmdir logs || true
 else
     echo "Error during project build." | tee -a logs/build.log
