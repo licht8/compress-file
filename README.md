@@ -32,6 +32,7 @@ and then just run the script:
 ```
 (**build** folder also contains the logs directory, which contains logs.)
 
+
 ### Windows
 ```
 git clone https://github.com/licht8/compress-file.git
