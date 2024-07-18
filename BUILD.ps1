@@ -1,4 +1,3 @@
-
 if (-not (Get-Command make -ErrorAction SilentlyContinue)) {
     Write-Error "Make is not installed. Please install make."
     exit 1
