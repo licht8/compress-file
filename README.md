@@ -13,8 +13,8 @@ Reads the compressed file and reconstructs the Huffman tree.
 Uses the tree to decode a sequence of bits into the original characters.
 Restores and saves the original file.
 
-## Building the Project
-### Linux 
+# Building the Project
+## Linux 
 ```
 git clone https://github.com/licht8/compress-file.git
 cd compress-file
@@ -33,7 +33,7 @@ and then just run the script:
 (**build** folder also contains the logs directory, which contains logs.)
 
 
-### Windows
+## Windows
 ```
 git clone https://github.com/licht8/compress-file.git
 cd compress-file
