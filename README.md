@@ -16,7 +16,7 @@ Restores and saves the original file.
 ## Building the Project
 ### Linux 
 ```
-git clone https://github.com/licht8/compress-file.git
+git clone https://github.com/licht8/compress-file.git && cd compress-file
 chmod +x BUILD.sh && chmod +x RUN.sh
 ```
 In order to start building follow this command: 
@@ -32,3 +32,15 @@ and then just run the script:
 (**build** folder also contains the logs directory, which contains logs.)
 
 ### Windows
+```
+git clone https://github.com/licht8/compress-file.git && cd compress-file
+```
+
+You can easily build the project using PowerShell script:
+```
+.\BUILD.ps1
+```
+and run the script afterwards by following this command:
+```
+.\RUN.ps1
+```
