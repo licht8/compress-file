@@ -13,6 +13,39 @@ Reads the compressed file and reconstructs the Huffman tree.
 Uses the tree to decode a sequence of bits into the original characters.
 Restores and saves the original file.
 
+# Requirements for Building the Program
+## Linux
+* Install the GCC compiler:
+```
+sudo apt-get update
+sudo apt-get install gcc
+```
+* Install Make:
+```
+sudo apt-get install make
+```
+* Make sure you have permissions to run scripts:
+```
+chmod +x BUILD.sh && chmod +x RUN.sh
+```
+
+## Windows
+* Install GCC Compiler:
+Install MinGW (Minimalist GNU for Windows), which includes GCC
+
+* Install Make:
+Install MinGW (Minimalist GNU for Windows), which includes Make or use Chocolatey:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+```
+choco install make
+```
+* Allow PowerShell scripts to run:
+```
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+```
+
 # Building the Project
 ## Linux 
 ```
