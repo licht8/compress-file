@@ -21,7 +21,7 @@ cd compress-file
 chmod +x BUILD.sh && chmod +x RUN.sh
 ./BUILD.sh
  ```
-this command will create a new build directory for the object and executable files
+the last command will create a new build directory for the object and executable files
 
 and then just run the script: 
 ```
