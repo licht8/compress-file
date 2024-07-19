@@ -24,7 +24,7 @@ sudo apt-get install gcc
 ```
 sudo apt-get install make
 ```
-* Make sure you have permissions to execute scripts after building the project:
+* Make sure you have permissions to run scripts:
 ```
 chmod +x BUILD.sh && chmod +x RUN.sh
 ```
