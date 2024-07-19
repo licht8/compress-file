@@ -27,7 +27,7 @@ and then just run the script:
 ```
 ./RUN.sh
 ```
-(**build** folder also contains the logs directory for logs.)
+(**build** folder also contains the logs directory.)
 
 
 ## Windows
