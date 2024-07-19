@@ -16,7 +16,8 @@ Restores and saves the original file.
 # Building the Project
 ## Linux 
 ```
-git clone https://github.com/licht8/compress-file.git && cd compress-file
+git clone https://github.com/licht8/compress-file.git
+cd compress-file
 chmod +x BUILD.sh && chmod +x RUN.sh
 ./BUILD.sh
  ```
