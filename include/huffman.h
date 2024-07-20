@@ -7,6 +7,17 @@
 #include <limits.h>
 #include <time.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#include <limits.h>
+#ifndef PATH_MAX
+#define PATH_MAX MAX_PATH
+#endif
+#else
+#include <unistd.h>
+#include <linux/limits.h>
+#endif
+
 typedef struct {
     unsigned char uch;
     unsigned long weight;
@@ -24,5 +35,6 @@ void CreateTree(HufNode* huf_tree, unsigned int char_kinds, unsigned int node_nu
 void HufCode(HufNode* huf_tree, unsigned int char_kinds);
 int compress(const char* ifname, const char* ofname);
 int extract(const char* ifname, const char* ofname);
+char* find_file(const char* filename);
 
 #endif /* HUFFMAN_H */

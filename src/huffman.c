@@ -1,9 +1,16 @@
 #include "huffman.h"
-#include <limits.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#include <errno.h>
+#include <linux/limits.h>
+#endif
 
 void huf_select(HufNode* huf_tree, unsigned int n, int* s1, int* s2) {
     unsigned int i;
@@ -201,8 +208,10 @@ int extract(const char* ifname, const char* ofname) {
             fclose(infile);
             return -1;
         }
-        while (file_len--)
+
+        for (i = 0; i < file_len; ++i)
             fwrite(&code_temp, sizeof(unsigned char), 1, outfile);
+
         fclose(infile);
         fclose(outfile);
         return 0;
@@ -211,7 +220,7 @@ int extract(const char* ifname, const char* ofname) {
         huf_tree = (HufNode*)calloc(node_num, sizeof(HufNode));
 
         for (i = 0; i < char_kinds; ++i) {
-            if (fread(&huf_tree[i].uch, sizeof(unsigned char), 1, infile) != 1 ||
+            if (fread(&huf_tree[i].uch, sizeof(unsigned char), 1, infile) != 1 || 
                 fread(&huf_tree[i].weight, sizeof(unsigned long), 1, infile) != 1) {
                 free(huf_tree);
                 fclose(infile);
@@ -261,4 +270,42 @@ int extract(const char* ifname, const char* ofname) {
     printf("Decompression time: %.4f seconds\n", ((double)(clock() - start_time)) / CLOCKS_PER_SEC);
 
     return 0;
+}
+
+char* find_file(const char* filename) {
+    char* filepath = (char*)malloc(PATH_MAX);
+    if (filepath == NULL) {
+        fprintf(stderr, "Memory allocation error\n");
+        return NULL;
+    }
+    filepath[0] = '\0';
+
+#ifdef _WIN32
+    WIN32_FIND_DATA findFileData;
+    HANDLE hFind = FindFirstFile(filename, &findFileData);
+    if (hFind != INVALID_HANDLE_VALUE) {
+        GetFullPathName(findFileData.cFileName, PATH_MAX, filepath, NULL);
+        FindClose(hFind);
+    }
+#else
+    char command[PATH_MAX + 32];
+    snprintf(command, sizeof(command), "find / -name %s 2>/dev/null", filename);
+    FILE* pipe = popen(command, "r");
+    if (pipe == NULL) {
+        fprintf(stderr, "Error executing find command\n");
+        free(filepath);
+        return NULL;
+    }
+    fgets(filepath, PATH_MAX, pipe);
+    pclose(pipe);
+
+    if (filepath[0] != '\0') {
+        filepath[strcspn(filepath, "\n")] = '\0'; // Remove newline character
+    } else {
+        free(filepath);
+        return NULL;
+    }
+#endif
+
+    return filepath;
 }
